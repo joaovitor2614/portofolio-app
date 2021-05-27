@@ -1,0 +1,11 @@
+.column {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.column * {
+    margin: 0.2rem 0;
+    color: #757575;
+    font-weight: 300;
+}

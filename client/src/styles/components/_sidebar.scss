@@ -1,0 +1,97 @@
+.sidebar {
+    background: #FFF;
+    height: 100%;
+    position: fixed;
+    left: 0;
+
+    width: 200px;
+    will-change: left;
+    z-index: 999;
+    box-shadow: $shadow;
+
+}
+
+.sidebar__top {
+    text-align: center;
+    padding: 1.8rem $sl-size;
+    background-color: #fafafa;
+ 
+    
+}
+
+.sidebar__top-title {
+    color: $apptheme;
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+   
+}
+
+.sidebar__list-parent {
+   
+   display: flex;
+   flex-direction: column;
+   padding: 0;
+   margin: 0;
+}
+
+.sidebar__list-parent li {
+   
+   
+    padding: 7px 15px;
+ 
+}
+
+.sidebar__list-parent-item {
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: row;
+    margin: 0 0.3rem;
+    vertical-align: middle;
+    transition: background 0.3s;
+    height: 40px;
+    
+   
+
+}
+
+
+.sidebar__list-parent-item * {
+    margin: 0 0.8rem;
+    
+}
+
+.sidebar__list-parent-item h5 {
+    color: #333;
+}
+
+
+
+.sidebar__list-parent-item:hover {
+    background: rgb(185, 185, 185);
+}
+
+.sidebar__list-parent-item--1:hover {
+    border-left: 2px solid green;
+}
+
+.sidebar__list-parent-item--2:hover {
+    border-left: 2px solid purple;
+}
+
+.sidebar__list-parent-item--3:hover {
+    border-left: 2px solid yellow;
+}
+
+.sidebar__list-parent-item--4:hover {
+    border-left: 2px solid blue;
+}
+.sidebar__list-parent-item--5:hover {
+    border-left: 2px solid brown;
+}
+
+.sidebar__list-parent-item--6:hover {
+    border-left: 2px solid black;
+}

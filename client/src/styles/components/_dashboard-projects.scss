@@ -1,0 +1,29 @@
+
+.dashboard_projects {
+    margin-top: 30px;
+    top: 0;
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 30px;
+}
+
+.dashboard_projects-text-box {
+    position: relative;
+    background-color: $apptheme;
+    
+    height: 110px;
+    text-align: center;
+}
+
+.dashboard_projects-text-box h3 {
+
+    color: #fff;
+
+    font-weight: 200;
+    text-transform: uppercase;
+
+    font-size: 3rem;
+    line-height: 3rem;
+    padding: 30px 20px;
+}
+

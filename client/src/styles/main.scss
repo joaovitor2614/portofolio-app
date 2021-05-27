@@ -1,0 +1,12 @@
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+// estilos default
+@import './global/global';
+// reusable
+@import './global/settings';
+@import './reusable/column';
+// components styles
+@import './components/sidebar';
+@import './components/dashboard-top';
+@import './components/dashboard-projects';
+
