@@ -1,4 +1,4 @@
-import { accouting, storage } from "./imgs/imgs";
+import { accouting, storage } from "../imgs/imgs";
 
 
 const projectdata = [

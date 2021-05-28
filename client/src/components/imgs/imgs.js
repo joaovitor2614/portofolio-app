@@ -1,4 +1,14 @@
 import bg from '../../assets/bg.jpg'
+import react from '../../assets/react.png'
+import css from '../../assets/css.png'
+import js from '../../assets/js.png'
+import node from '../../assets/node.png'
+import mongodb from '../../assets/mongodb.png'
+import expressjs from '../../assets/expressjs.png'
+import html from '../../assets/html.png'
+import sass from '../../assets/sass.png'
+import materialui from '../../assets/materialui.png'
+import redux from '../../assets/redux.png'
 import accouting from '../../assets/accouting.png'
 import storage from '../../assets/storage(2).png'
-export { bg, accouting, storage }
+export { bg, accouting, storage, react, redux, html, js, css, sass, materialui, node, mongodb, expressjs }

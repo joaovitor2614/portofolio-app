@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { GoKebabVertical, AiOutlineClose, 
-  BsBoxArrowUpRight, AiFillGithub } from './icons/react-icons'
+  BsBoxArrowUpRight, AiFillGithub } from '../icons/react-icons'
 
 import { Card, CardActionArea, CardContent, 
-    Typography, CardActions, Grid, CardMedia, Button, 
-    makeStyles, IconButton, Collapse, Fab, Tooltip } from './material-ui/material-ui'
+    Typography, Grid, CardMedia, 
+    makeStyles, IconButton, Collapse, Fab, Tooltip } from '../material-ui/material-ui'
 
     const useStyles = makeStyles((theme) => ({
       root: {
@@ -103,14 +103,14 @@ const DashBoardProjectsCart = (props) => {
                 <Grid item>
                   <Tooltip title='View Online' aria-label='View Online'>
                       <Fab color='primary' className={classes.fab}>
-                          <BsBoxArrowUpRight />
+                          <BsBoxArrowUpRight size={30}  />
                       </Fab>
                   </Tooltip>
                 </Grid>
                 <Grid item>
                   <Tooltip title='View Source' aria-label='View Source'>
                       <Fab color='primary' className={classes.fab}>
-                          <AiFillGithub />
+                          <AiFillGithub size={30} />
                       </Fab>
                   </Tooltip>
                 </Grid>

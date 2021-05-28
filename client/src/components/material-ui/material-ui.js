@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import Tooltip from '@material-ui/core/Tooltip';
 import Fab from '@material-ui/core/Fab';
+import Paper from '@material-ui/core/Paper';
 import Collapse from '@material-ui/core/Collapse';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -16,4 +17,4 @@ import Typography from '@material-ui/core/Typography';
 export { makeStyles, Card, CardActionArea, CardActions, 
     CardContent, Button, Grid, IconButton, 
     Typography, Collapse, Fab, Tooltip,
-    CardMedia}
+    CardMedia, Paper}
