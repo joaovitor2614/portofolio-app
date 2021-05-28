@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 const ContactMedia = () => {
     const classes = useStyles()
     return (
-        <Grid container spacing={0.4} className={classes.root}>
+        <Grid container spacing={1} className={classes.root}>
 
             <Grid item xs={3} className={classes.item}>
                 <AiOutlineMail size={40} style={{ marginBottom: '15px' }} />

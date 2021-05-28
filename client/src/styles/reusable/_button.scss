@@ -1,0 +1,22 @@
+.button {
+    margin: 0 8px 8px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: MontSerrat,Tahoma,Arial,sans-serif;
+    display: inline-block;
+    vertical-align: middle;
+    height: 47px;
+    outline-style: none;
+    outline-width: 0px;
+    transition: opacity 0.1s ease-out 0s;
+    line-height: 24px;
+    font-size: 12px;
+    border-radius: 3px;
+    text-indent: 0px;
+    width: 100%;
+    background: #009688;
+    color: #fff;
+    border: none;
+    box-shadow: $shadow;
+    cursor: pointer;
+}
