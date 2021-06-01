@@ -1,18 +1,25 @@
 
 .dashboard_projects {
-    margin-top: 30px;
+    margin-top: 20px;
     top: 0;
     position: relative;
     padding-top: 0;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
+    @media (min-width: $desktop-breakpoint) {
+        margin-top: 30px;
+        padding-bottom: 30px;
+    }
 }
 
 .dashboard_projects-text-box {
     position: relative;
     background-color: $apptheme;
     
-    height: 110px;
+    height: 90px;
     text-align: center;
+    @media (min-width: $desktop-breakpoint) {
+        height: 110px;
+    }
 }
 
 .dashboard_projects-text-box h3 {
@@ -22,8 +29,15 @@
     font-weight: 200;
     text-transform: uppercase;
 
-    font-size: 3rem;
+    font-size: 1.8rem;
     line-height: 3rem;
     padding: 30px 20px;
+  
+    @media (min-width: $desktop-breakpoint) {
+       
+        padding: 30px 20px;
+        font-size: 3rem;
+    
+    }
 }
 

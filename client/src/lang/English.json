@@ -1,0 +1,27 @@
+
+  {
+    "top.title1" : "Always looking forward to" ,
+    "top.title2" : "writing" ,
+    "top.title3" : "the most" ,
+    "top.title4" : " clean and reusable code",
+    "title1": "Projects",
+    "title2": "Skills",
+    "title3": "Contact",
+    "title4": "About",
+    "btn.next": "Next",
+    "btn.submit": "Submit your message",
+    "btn.reset": "Reset",
+    "input.1": "Fill up your name",
+    "input.2": "Fill up your email address",
+    "input.3": "Fill up your message",
+    "contact.title": "Get in touch",
+    "contact.text1":  "If you wanna get in touch, talk to me about a project colaboration,",
+    "contact.text2": " hire me to build an app or just say hi,  fill the form bellow",
+    "contact.text3": "or just send an email to  ",
+    "contact.text4": "and let's talk!",
+    "about.title": "Obstinate full stack developer with a solid interest with technology",
+    "about.text1": "I'm always looking to solving more and more advanced problems on each project that I build, from code architecture problems to UI accessibility and usability matters.",
+    "about.text2": "That's why as a web developer I'm always looking forward on using my stubbornness on problem solving toattend customer needs in the best way possible and provide them with the best clean and scalable software."
+   }
+
+   

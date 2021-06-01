@@ -6,6 +6,7 @@ const projectdata = [
         title: 'Accounting Firm Webiste',
         description: 'Simple Responsive Website developed for accounting firm with React.js stack',
         img: accouting,
+        app: 'http://www.estrellacontabilidade.com.br/',
         features: [
             'Front end built with React.js',
             'Styles with Material-ui and SCSS',
@@ -17,6 +18,8 @@ const projectdata = [
         title: 'Business management system',
         description: 'System developed for sales, storage, clients, bills management',
         img: storage,
+        app: 'https://storage-cashflow-app.herokuapp.com/',
+        source: 'https://github.com/joaovitor2614/Storage',
         features: [
             'Extensive backend API with Express and Node',
             'CRUD operations on Database with Mongoose',

@@ -1,98 +1,54 @@
 
 import React, { useState } from 'react'
-import { BsPencilSquare, BsPeopleCircle, AiOutlineMail} from 'react-icons/bs';
-import { Paper, Typography, makeStyles, TextField, InputAdornment } from '../material-ui/material-ui';
-import steps from './steps';
+import { useDispatch } from 'react-redux'
+import { useSnackbar } from 'notistack';
+import { BsPencilSquare, BsPeopleCircle,  } from 'react-icons/bs';
+import { Paper, Typography, TextField, InputAdornment, 
+    CircularProgress } from '../material-ui/material-ui';
+import ContactFormData from './ContactFormData';
+import ContactFormText from './ContactFormText';
+import sendEmail from './send';
+import steps, { isDisabled, handleReset, handleNextStep } from './steps';
+import useContact from './useContact';
+import {FormattedMessage} from 'react-intl';
+import { useIntl } from 'react-intl';
 
-const useStyles = makeStyles((theme) => ({
-  
-    paper: {
-        margin: theme.spacing(1),
-        marginLeft: '280px',
-        maxWidth: '800px',
-        marginTop: theme.spacing(4),
-        padding: theme.spacing(5),
-        marginBottom: theme.spacing(3)
-    },
-    textbox: {
-        maxWidth: '750px',
-        whiteSpace: 'nowrap',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start'
-    },
-    form: {
-        alignItems: 'flex-start',
-        display: 'flex',
-        flexDirection: 'column',
-        padding: theme.spacing(2),
-        margin: theme.spacing(2)
-    },
-    formBtn: {
-        marginTop: '20px',
-        display: 'flex',
-        flexDirection: 'row',
-    },
-    textmain: {
-        "& span": {
-            fontWeight: 500
-        }
-    },
-    title: {
-        color: 'gray',
-        fontSize: '2.6em',
-        textShadow: ' 2px 2px 0 rgb(0 0 0 / 15%);',
-        width: '100%',
-        marginBottom: '.1em',
-        fontWeight: 700,
-        lineHeigh: '1.5em'
-    },
-    input: {
-        width: '28rem',
-
-        marginRight: theme.spacing(2)
-    }
-   
-}))
-
-const ContactForm = () => {
+const ContactForm = ({ loading }) => {
+    const intl = useIntl()
+    const dispatch = useDispatch()
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         message: ''
     })
-    let [currentStep, setCurrentStep] = useState(0);
-    const handleNextStep = () => setCurrentStep(++currentStep);
-    const { name, email, message } = formData;
+    const [displayData, setDisplayData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    })
+    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
     const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+    let [currentStep, setCurrentStep] = useState(0);
+    const { name, email, message } = formData;
+
     const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(formData);
+        e.preventDefault();
+        dispatch(sendEmail(formData, enqueueSnackbar, intl.locale))
+        
+ 
+        handleReset(setFormData, formData, setCurrentStep)
     }
-    const classes = useStyles();
+   
+    const classes = useContact();
     return (
         <Paper className={classes.paper} elevation={2}>
             <Typography component="div" className={classes.textbox}>
-                <Typography component="h1" className={classes.title}>
-                    Get in touch 
-
-                </Typography>
-                <Typography component="h5">
-                    If you wanna get in touch, talk to me about a project colaboration, 
-
-                </Typography>
-               
-                <Typography component="h5">
-                    hire me to build an app or just say hi,  fill the 
-                    form bellow
-                </Typography>
-                <Typography component="h5" className={classes.textmain}>
-                     or just send an email to  
-                    <span> jvitoralvesestrella@gmail.com</span> and let's talk!
-                </Typography>
+                <ContactFormText classes={classes} />
+                <ContactFormData classes={classes} formData={displayData} />
                 <form className={classes.form} onSubmit={handleSubmit}>
                     {steps[currentStep].id === 'NAME' && (
-                        <TextField variant="outlined" name='name' placeholder="Fill with your name" 
+                        <TextField variant="outlined" name='name' placeholder="Fill with your name"
+                        autoComplete="off" 
                         className={classes.input} value={name} onChange={(e) => handleChange(e)}
                         InputProps={{
                         startAdornment: 
@@ -103,7 +59,12 @@ const ContactForm = () => {
                     )}
                     {steps[currentStep].id === 'EMAIL' && (
                         <TextField variant="outlined" name='email'
-                        placeholder="Fill with your email address" 
+                        placeholder={
+                            <FormattedMessage
+                            id = "input2"
+                            defaultMessage="Fill up with your email address"
+                           />
+                        } 
                         className={classes.input} value={email} onChange={(e) => handleChange(e)}
                         
                         />
@@ -112,7 +73,8 @@ const ContactForm = () => {
                     )}
                     {steps[currentStep].id === 'MSG' && (
                         <TextField variant="outlined" name='message'
-                        placeholder="Fill with your message" 
+                        placeholder="Fill with your message"
+                        autoComplete="off"
                         className={classes.input}
                         value={message} onChange={(e) => handleChange(e)}
                         InputProps={{
@@ -120,17 +82,52 @@ const ContactForm = () => {
                         <InputAdornment position="start">
                             <BsPencilSquare size={20} />
                         </InputAdornment>
+                        
                         }} />
                     )}
                    
                     <Typography component="div" className={classes.formBtn}>
-                        <button disabled={name === ''} type='button' className="button" 
-                        onClick={() => handleNextStep()}>
-                            Next
+                    {steps[currentStep].id === 'NAME' && (
+                        <button disabled={isDisabled(currentStep, formData)} 
+                        type='button' className="button" 
+                        onClick={() => 
+                        handleNextStep(setCurrentStep, currentStep, 
+                        setDisplayData, 'name', name, displayData)}>
+                            <FormattedMessage
+                            id = "btn.next"
+                            defaultMessage="Next"
+                           />
                         </button>
-                        <button type='submit' className="button">
-                            Submit your message
+                       )}
+                         {steps[currentStep].id === 'EMAIL' && (
+                        <button disabled={isDisabled(currentStep, formData)} 
+                        type='button' className="button" 
+                        onClick={() => 
+                        handleNextStep(setCurrentStep, currentStep, 
+                        setDisplayData, 'email', email, displayData)}>
+                             <FormattedMessage
+                                id = "btn.next"
+                                defaultMessage="Next"
+                            />
                         </button>
+                         )}
+                        <button type='submit' className="button" 
+                        disabled={name === '' || email === '' || message === ''}>
+                              <FormattedMessage
+                                id = "btn.submit"
+                                defaultMessage="Submit your message"
+                              />
+                        </button>
+                        <button type='button' style={{ marginLeft: '40px'}} className="button" 
+                        onClick={() => handleReset(setFormData, formData, setCurrentStep, setDisplayData)}>
+                             <FormattedMessage
+                                id = "btn.reset"
+                                defaultMessage="Reset"
+                            />
+                        </button>
+                        {loading && (
+                            <CircularProgress />
+                        )}
                     </Typography>
                  
                 </form>

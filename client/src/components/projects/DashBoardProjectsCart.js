@@ -8,8 +8,18 @@ import { Card, CardActionArea, CardContent,
 
     const useStyles = makeStyles((theme) => ({
       root: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
         paddingBottom: '20px',
-        heigh: '140px'
+        maxWidth: 275,
+        heigh: '120px',
+        ['@media (min-width: 45rem)'] : {
+            maxWidth: 345,
+        heigh: '140px',
+        }
+
+        
       },
       box: {
          verticalAlign: 'middle',
@@ -43,7 +53,8 @@ import { Card, CardActionArea, CardContent,
         },
         tooltip: {
           borderTop: '1px solid gray',
-          marginTop: 'auto'
+          marginTop: 'auto',
+          paddingTop: 'auto'
         }
         
     
@@ -52,12 +63,11 @@ import { Card, CardActionArea, CardContent,
 const DashBoardProjectsCart = (props) => {
   const [open, setOpen] = useState(false)
   const classes = useStyles();
-    const { img, title, description, features } = props
+    const { img, title, description, features, source, app } = props
     const handleToggle = () => setOpen(!open)
-
+   
     return (
-        <Card  style={{display: 'flex', justifyContent: 'space-between',
-        flexDirection: 'column', maxWidth: 345 }} className={classes.root}>
+        <Card className={classes.root}>
           <Collapse in={!open} >
             <CardActionArea>
               <CardMedia
@@ -94,25 +104,43 @@ const DashBoardProjectsCart = (props) => {
              </Typography>
             <Typography component="div" className={classes.list}>
               {features.length > 0 && features.map((ft) => (
-                <li>{ft}</li>
+                <li key={ft}>{ft}</li>
               ))}
                     
             </Typography>
             <Grid container spacing={1} justify='start' className={classes.tooltip}>
 
                 <Grid item>
-                  <Tooltip title='View Online' aria-label='View Online'>
-                      <Fab color='primary' className={classes.fab}>
-                          <BsBoxArrowUpRight size={30}  />
-                      </Fab>
-                  </Tooltip>
+                  {app && (
+                     <a href={app}  style={{ textDecoration: 'none' }}
+                     target="_blank" 
+                   >
+                      <Tooltip title='View Online' aria-label='View Online'>  
+                        <Fab color='primary' className={classes.fab}>
+                            <BsBoxArrowUpRight size={30}  />
+                        </Fab>
+                      </Tooltip>
+                   </a>
+                    
+                  )}
+                 
                 </Grid>
                 <Grid item>
-                  <Tooltip title='View Source' aria-label='View Source'>
-                      <Fab color='primary' className={classes.fab}>
-                          <AiFillGithub size={30} />
-                      </Fab>
-                  </Tooltip>
+                  {source && (
+                    <a href={source}  style={{ textDecoration: 'none' }}
+                      target="_blank" 
+                    >
+                      <Tooltip title='View Source' aria-label='View Source'>
+                      
+                            <Fab color='primary' className={classes.fab}>
+                                <AiFillGithub size={30} />
+                            </Fab>
+                      
+                          
+                      </Tooltip>
+                   </a>
+                  )}
+                 
                 </Grid>
             </Grid>
                   

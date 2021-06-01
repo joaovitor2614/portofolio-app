@@ -1,0 +1,28 @@
+
+  {
+    "top.title1" : "Sempre a procura de" ,
+    "top.title2" : "\bdesenvolver" ,
+    "top.title3" : "o codigo mais" ,
+    "top.title4" : " limpo e escalável",
+    "title1": "Projetos",
+    "title2": "Tecnologias",
+    "title3": "Contato",
+    "title4": "Sobre",
+    "btn.next": "Próximo",
+    "btn.submit": "Enviar sua mensagem",
+    "btn.reset": "Resetar",
+    "input.1": "Insira seu nome",
+    "input.2": "Insira seu endereço de email",
+    "input.3": "Insira sua mensagem",
+    "contact.title": "Entrar em contato",
+    "contact.text1": "Se você quiser entrar em contato, me propor uma colaboração em um projeto,",
+    "contact.text2": "me contrato para desenvolver um app ou apenas dizer olá,  preencha o formulário abaixo",
+    "contact.text3": "ou apenas mande um email para",
+    "contact.text4": "e vamos conversar!",
+    "about.title": "Desenvolvedor Full-Stack obstinado, com um sólido interesse em tecnologia",
+    "about.text1": "Estou sempre a procura de resolver problemas cada vez mais avançados em cada projeto que eu crio, desde problemas de arquitetura do código à questões de acessibilidade e usabilidade da UI.",
+    "about.text2": "É por esse motivo que como um desenvolvedor web, estou sempre tentando alinhar minha persitência em resolver problemas para atender as necessidades de clientes da melhor maneira possível e oferecer software limpo e escalável"
+      
+
+
+   }

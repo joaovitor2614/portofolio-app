@@ -1,8 +1,10 @@
 .dashboard__top-box {
+      position: relative;
      padding: 0;
      margin: 0;
      height: 100vh;
      width: 100vw;
+     z-index: -99;
  
     
     
@@ -18,14 +20,20 @@
 }
 
 .dashboard__top-box-phrase__text {
+
     color: #fff;
     font-weight: 300;
-    font-size: 3.2rem;
+    font-size: 1.3rem;
     line-height: 4rem;
+    margin-right: $m-size;
 
     padding: 0;
     margin: 0;
     text-shadow: $text-shadow;
+    @media (min-width: $desktop-breakpoint) {
+        font-size: 3.2rem;
+        margin: 0 $ml-size;
+    }
     
 }
 
@@ -41,11 +49,18 @@
 
 .dashboard__top-box-phrase {
     white-space: nowrap;
-    margin-left: $ml-size;
-    display: flex;
+    margin: 0 $s-size;
+   
+    
     flex-direction: column;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 0;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-top: 5px;
+
+    @media (min-width: $desktop-breakpoint) {
+        padding-top: 450px;
+        margin: 0 $ml-size;
+        
+    }
 }

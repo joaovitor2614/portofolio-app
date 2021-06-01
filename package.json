@@ -4,7 +4,7 @@
   "description": "This was a storage, sales, cash management app built specifically for a petshop business, in this project you can register new products on the storage, make real time sales with immediate updates  on the storage and see your history and total cash earned on daily and monthly sales.",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon server",
+    "server": "npm run server --prefix server",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "concurrently": "^6.2.0",
+    "dotenv": "^10.0.0",
     "react-icons": "^4.2.0"
   }
 }

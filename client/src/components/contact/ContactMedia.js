@@ -6,8 +6,16 @@ import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from 'react-icons/ai';
 
 const useStyles = makeStyles({
     root: {
-      marginLeft: '250px',
+        alignItems: 'center',
+      marginLeft: '2s0px',
       marginTop: '25px',
+      display: 'flex',
+      flexDirection: 'column',
+      ['@media (min-width: 45rem)'] : {
+        marginLeft: '250px',
+        flexDirection: 'row',
+        alignItems: 'start'
+      }
       
       
     },
@@ -15,9 +23,18 @@ const useStyles = makeStyles({
         alignItems: 'center',
         cursor: 'pointer',
         display: 'flex',
+        color: 'black',
         flexDirection: 'column',
         textDecoration: 'none',
-        textDecorationColor: 'none'
+        textDecorationColor: 'none',
+        margin: '9px 0',
+      
+        ['@media (min-width: 45rem)'] : {
+            margin: 0
+        }
+    },
+    name: {
+        display: 'inline-block'
     }
   });
 
@@ -37,7 +54,9 @@ const ContactMedia = () => {
                     target="_blank" className={classes.item}
                 >
                     <AiFillLinkedin size={40} style={{ marginBottom: '15px' }} />
-                    <Typography component="h5">João Vitor Alves Estrella</Typography>
+                    <Typography component="h5" className={classes.name}>
+                        João Vitor Alves Estrella
+                    </Typography>
                 </a>
                 
             </Grid>
@@ -47,7 +66,9 @@ const ContactMedia = () => {
                     target="_blank" className={classes.item}
                 >
                     <AiFillGithub size={40} style={{ marginBottom: '15px' }} />
-                   <Typography component="h5">joaovitor2614</Typography>
+                   <Typography component="h5" className={classes.name}>
+                       joaovitor2614
+                    </Typography>
                 </a>
                 
             </Grid>

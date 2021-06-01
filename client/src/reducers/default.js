@@ -1,9 +1,19 @@
 
+const initialState = {
+    loading: false
+}
 
-
-const defaultReducer = (state = [], action) => {
+const defaultReducer = (state = initialState, action) => {
     const { type, payload} = action
     switch (type) {
+        case 'LOADING':
+            return {
+                loading: true
+            }
+        case 'LOADED':
+                return {
+                    loading: false
+                }
        
          
     

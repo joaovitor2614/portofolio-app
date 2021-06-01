@@ -4,12 +4,18 @@ import { Paper, Typography, makeStyles } from '../material-ui/material-ui'
 
 const useStyles = makeStyles((theme) => ({
     techbox: {
+        justifyContent: 'center',
         display: 'grid',
-        gridTemplateColumns: 'repeat(5, 180px)',
+        gridTemplateColumns: 'repeat(1, 180px)',
         gridTemplateRows: 'repeat(auto-fill, 200px)',
         gridGap: '25px',
         padding: '5px',
-        paddingTop: '20px'
+        paddingTop: '20px',
+        ['@media (min-width: 45rem)'] : {
+            justifyContent: 'start',
+            gridTemplateColumns: 'repeat(5, 180px)',
+            gridTemplateRows: 'repeat(auto-fill, 200px)',
+        }
     },
     techboxitem: {
         display: 'flex',
@@ -18,12 +24,15 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
         margin: theme.spacing(1),
-        marginLeft: '280px',
+        marginLeft: '80px',
         maxWidth: '1000px',
         marginTop: theme.spacing(6),
         padding: theme.spacing(2),
         paddingTop: theme.spacing(3),
-        marginBottom: theme.spacing(3)
+        marginBottom: theme.spacing(3),
+        ['@media (min-width: 45rem)'] : {
+            marginLeft: '280px',
+        }
     },
     text: {
         borderBottom: '1px solid gray',

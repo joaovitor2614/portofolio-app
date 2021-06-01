@@ -1,39 +1,93 @@
-import React from 'react'
-import { BsPeople, BsBook, GoProject, AiFillFileText, MdEmail, GoGraph } from '../../icons/react-icons'
+import React, { useContext } from 'react'
+import { BsPeople, BsBook, GoProject, 
+    AiFillFileText, MdEmail, GoGraph, FaLanguage } from '../../icons/react-icons'
+import { Select, MenuItem, makeStyles } from '../../material-ui/material-ui'
+import {Link} from 'react-scroll'
+import { Context } from '../../../lang/Wrapper'
+import {FormattedMessage} from 'react-intl';
+
+const useStyles = makeStyles({
+    select: {
+        marginTop: '170px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: '32px',
+        width: '65%'
+    }
+})
+
 const SideBarList = () => {
+    const classes = useStyles();
+    const context = useContext(Context);
+    console.log('context', context)
+    const { selectLanguage } = context
     return (
         <div>
             <ul className='sidebar__list-parent'>
-                <li className='sidebar__list-parent-item sidebar__list-parent-item--1'>
-                    <BsPeople size={30} style={{ fill: 'green' }} />
-                    <h5>About</h5>
-                   
-                </li>
-                <li className='sidebar__list-parent-item sidebar__list-parent-item--2'>
-                    <GoProject size={30} style={{ fill: 'purple' }} />
-                    <h5>Projects</h5>
-                   
-                </li>
-                <li className='sidebar__list-parent-item sidebar__list-parent-item--3'>
-                    <GoGraph size={30} style={{ fill: 'yellow' }} />
-                    <h5>Skills</h5>
-                   
-                </li>
-                <li className='sidebar__list-parent-item sidebar__list-parent-item--4'>
-                    <BsBook size={30} style={{ fill: 'blue' }} />
-                    <h5>Education</h5>
-                   
-                </li>
-                <li className='sidebar__list-parent-item sidebar__list-parent-item--5'>
+         
+             
+                <Link  to="projects" spy={true} smooth={true}>
+                    <li className='sidebar__list-parent-item sidebar__list-parent-item--2'>
+                        <GoProject size={30} style={{ fill: 'purple' }} />
+                        <h5>
+
+                        <FormattedMessage
+                            id = "title1"
+                            defaultMessage="Projects"
+                        />
+                        </h5>
+                    </li>
+                </Link>
+                
+             
+                <Link to="skills" spy={true} smooth={true}>
+                    <li className='sidebar__list-parent-item sidebar__list-parent-item--3'>
+                        <GoGraph size={30} style={{ fill: 'yellow' }} />
+                        <h5>
+                            <FormattedMessage
+                                id = "title2"
+                                defaultMessage="Skills"
+                            />
+                        </h5>
+                    
+                    </li>
+                </Link>
+                
+
+                <Link  to="contact" spy={true} smooth={true}>
+                    <li className='sidebar__list-parent-item sidebar__list-parent-item--5'>           
                     <MdEmail size={30} style={{ fill: 'brown' }} />
-                    <h5>Contact</h5>
-                   
-                </li>
-                <li className='sidebar__list-parent-item sidebar__list-parent-item--6'>
-                    <AiFillFileText size={30} style={{ fill: 'black' }} />
-                    <h5>Resume</h5>
-                   
-                </li>
+                    <h5>
+                        <FormattedMessage
+                            id = "title3"
+                            defaultMessage="Contact"
+                        />
+                    </h5>
+                                
+                    </li>
+                </Link>
+              
+                <Link  to="about" spy={true} smooth={true}>
+                    <li className='sidebar__list-parent-item sidebar__list-parent-item--1'>
+                        <BsPeople size={30} style={{ fill: 'green' }} />
+                        <h5>
+                            <FormattedMessage
+                                id = "title4"
+                                defaultMessage="About"
+                            />
+                        </h5>
+                    
+                    </li>
+                </Link>
+                <Select value={context.locale} 
+                className={classes.select}
+                IconComponent = {() => <FaLanguage size={30} />}
+                onChange={(e) => selectLanguage(e)}>
+                    <MenuItem value='pt-PT'>Português</MenuItem>
+                    <MenuItem value='en'>English</MenuItem>
+                </Select>
+                
                 
             </ul>
         </div>
