@@ -8,27 +8,37 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
         margin: theme.spacing(1),
-        marginLeft: '280px',
+        marginLeft: '15px',
         width: '70%',
 
         lineHeight: '2.9rem',
         marginTop: theme.spacing(2),
         padding: theme.spacing(5),
-        marginBottom: theme.spacing(3)
+        marginBottom: theme.spacing(3),
+        ['@media (min-width: 45rem)'] : {
+            marginLeft: '280px',
+        }
     },
     title: {
         fontWeight: 400,
-        fontSize: '2rem',
+        fontSize: '1.1rem',
         margin: '20px 0',
        paddingLeft: '1.5rem',
        marginBottom: '30px',
 
-        borderLeft: '5px solid rgb(89, 211, 89)'
+        borderLeft: '3px solid rgb(89, 211, 89)',
+        ['@media (min-width: 45rem)'] : {
+            fontSize: '2rem',
+            borderLeft: '5px solid rgb(89, 211, 89)',
+        }
     },
     text: {
         letterSpacing: 1,
         marginBottom: '13px',
-        fontSize: '1.6rem'
+        fontSize: '0.9rem',
+        ['@media (min-width: 45rem)'] : {
+            fontSize: '1.6rem',
+        }
     }
 }))
 

@@ -118,7 +118,7 @@ const ContactForm = ({ loading }) => {
                                 defaultMessage="Submit your message"
                               />
                         </button>
-                        <button type='button' style={{ marginLeft: '40px'}} className="button" 
+                        <button type='button' className={classes.resetBtn} className="button" 
                         onClick={() => handleReset(setFormData, formData, setCurrentStep, setDisplayData)}>
                              <FormattedMessage
                                 id = "btn.reset"

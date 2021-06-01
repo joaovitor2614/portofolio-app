@@ -17,19 +17,20 @@ const useStyles = makeStyles({
     }
 })
 
-const SideBarList = () => {
+const SideBarList = ({ setExtended }) => {
     const classes = useStyles();
     const context = useContext(Context);
-    console.log('context', context)
+ 
     const { selectLanguage } = context
+    const handleClose = () => setExtended(false);
     return (
         <div>
             <ul className='sidebar__list-parent'>
          
              
-                <Link  to="projects" spy={true} smooth={true}>
+                <Link  to="projects" spy={true} smooth={true} onClick={() => handleClose()}>
                     <li className='sidebar__list-parent-item sidebar__list-parent-item--2'>
-                        <GoProject size={30} style={{ fill: 'purple' }} />
+                        <GoProject className='icon-list' style={{ fill: 'purple' }} />
                         <h5>
 
                         <FormattedMessage
@@ -43,7 +44,7 @@ const SideBarList = () => {
              
                 <Link to="skills" spy={true} smooth={true}>
                     <li className='sidebar__list-parent-item sidebar__list-parent-item--3'>
-                        <GoGraph size={30} style={{ fill: 'yellow' }} />
+                        <GoGraph className='icon-list' style={{ fill: 'yellow' }} />
                         <h5>
                             <FormattedMessage
                                 id = "title2"
@@ -57,7 +58,7 @@ const SideBarList = () => {
 
                 <Link  to="contact" spy={true} smooth={true}>
                     <li className='sidebar__list-parent-item sidebar__list-parent-item--5'>           
-                    <MdEmail size={30} style={{ fill: 'brown' }} />
+                    <MdEmail className='icon-list' style={{ fill: 'brown' }} />
                     <h5>
                         <FormattedMessage
                             id = "title3"
@@ -70,7 +71,7 @@ const SideBarList = () => {
               
                 <Link  to="about" spy={true} smooth={true}>
                     <li className='sidebar__list-parent-item sidebar__list-parent-item--1'>
-                        <BsPeople size={30} style={{ fill: 'green' }} />
+                        <BsPeople style={{ fill: 'green' }} className='icon-list' />
                         <h5>
                             <FormattedMessage
                                 id = "title4"

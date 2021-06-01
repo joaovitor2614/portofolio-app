@@ -5,8 +5,8 @@ const useResponsive = (setExtended) => {
     useEffect(() => {
         const setResponsive = () => {
             // show items or not according to screen size
-            return window.innerWidth < 900 ? setExtended(false)
-            : setExtended (true)
+            return window.innerWidth > 900 && setExtended(true)
+   
            
         }
         setResponsive(setExtended);

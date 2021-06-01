@@ -20,7 +20,7 @@ const Wrapper = (props) => {
   const [messages, setMessages] = useState(lang);
   function selectLanguage(e) {
     const newLocale = e.target.value;
-    console.log('new locale', newLocale)
+
     setLocale(newLocale);
     if (newLocale === 'en') {
           setMessages(English)

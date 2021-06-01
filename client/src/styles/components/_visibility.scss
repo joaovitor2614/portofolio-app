@@ -1,5 +1,7 @@
   
 .show-for-mobile {
+    position: fixed;
+    z-index: 100;
     @media (min-width: $desktop-breakpoint) {
       display: none;
     }
@@ -10,3 +12,7 @@
       display: none;
     }
   }
+
+.invisible {
+  display: none;
+}
