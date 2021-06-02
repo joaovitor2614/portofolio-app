@@ -17,12 +17,22 @@ const useStyles = makeStyles({
     }
 })
 
-const SideBarList = ({ setExtended }) => {
+const SideBarList = ({ setExtended, isMobile }) => {
     const classes = useStyles();
     const context = useContext(Context);
  
     const { selectLanguage } = context
-    const handleClose = () => setExtended(false);
+    const handleClose = () => {
+        if (isMobile === true) {
+            setExtended(false);
+        } else {
+            return
+        }
+        
+    }
+    const handleReturn = () => {
+        return
+    }
     return (
         <div>
             <ul className='sidebar__list-parent'>
@@ -42,7 +52,7 @@ const SideBarList = ({ setExtended }) => {
                 </Link>
                 
              
-                <Link to="skills" spy={true} smooth={true}>
+                <Link to="skills" spy={true} smooth={true} onClick={() => handleClose()}>
                     <li className='sidebar__list-parent-item sidebar__list-parent-item--3'>
                         <GoGraph className='icon-list' style={{ fill: 'yellow' }} />
                         <h5>
@@ -56,7 +66,7 @@ const SideBarList = ({ setExtended }) => {
                 </Link>
                 
 
-                <Link  to="contact" spy={true} smooth={true}>
+                <Link  to="contact" spy={true} smooth={true} onClick={() => handleClose()}>
                     <li className='sidebar__list-parent-item sidebar__list-parent-item--5'>           
                     <MdEmail className='icon-list' style={{ fill: 'brown' }} />
                     <h5>
@@ -69,7 +79,7 @@ const SideBarList = ({ setExtended }) => {
                     </li>
                 </Link>
               
-                <Link  to="about" spy={true} smooth={true}>
+                <Link  to="about" spy={true} smooth={true} onClick={() => handleClose()}>
                     <li className='sidebar__list-parent-item sidebar__list-parent-item--1'>
                         <BsPeople style={{ fill: 'green' }} className='icon-list' />
                         <h5>
@@ -81,13 +91,17 @@ const SideBarList = ({ setExtended }) => {
                     
                     </li>
                 </Link>
-                <Select value={context.locale} 
-                className={classes.select}
-                IconComponent = {() => <FaLanguage size={30} />}
-                onChange={(e) => selectLanguage(e)}>
-                    <MenuItem value='pt-PT'>Português</MenuItem>
-                    <MenuItem value='en'>English</MenuItem>
-                </Select>
+                <div className='show-for-desktop'>
+                    <Select value={context.locale} 
+                    className={classes.select}
+                    
+                    IconComponent = {() => <FaLanguage size={30} />}
+                    onChange={(e) => selectLanguage(e)}>
+                        <MenuItem value='pt-PT'>Português</MenuItem>
+                        <MenuItem value='en'>English</MenuItem>
+                    </Select>
+                </div>
+               
                 
                 
             </ul>

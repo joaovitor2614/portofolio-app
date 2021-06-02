@@ -4,7 +4,10 @@ import ContactForm from './ContactForm'
 import ContactMedia from './ContactMedia'
 
 import {FormattedMessage} from 'react-intl';
+import { makeStyles } from '../material-ui/material-ui';
+
 const Contact = () => {
+   
     const defaultState = useSelector(state => state.default)
     return (
         <div id='contact'>
@@ -17,7 +20,10 @@ const Contact = () => {
                         />
                     </h3>
                 </div>
+               
                 <ContactMedia />
+           
+                
                 <ContactForm loading={defaultState.loading} />
                 
             </section>

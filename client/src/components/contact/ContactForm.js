@@ -2,19 +2,21 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSnackbar } from 'notistack';
-import { BsPencilSquare, BsPeopleCircle,  } from 'react-icons/bs';
+import { BsPencilSquare, BsPeopleCircle, SiMinutemailer} from '../icons/react-icons'
+
 import { Paper, Typography, TextField, InputAdornment, 
     CircularProgress } from '../material-ui/material-ui';
 import ContactFormData from './ContactFormData';
 import ContactFormText from './ContactFormText';
 import sendEmail from './send';
-import steps, { isDisabled, handleReset, handleNextStep } from './steps';
+import steps, { isDisabled, handleReset, handleNextStep, getPlaceholder } from './steps';
 import useContact from './useContact';
 import {FormattedMessage} from 'react-intl';
 import { useIntl } from 'react-intl';
 
 const ContactForm = ({ loading }) => {
-    const intl = useIntl()
+    const intl = useIntl();
+    const languague = getPlaceholder(intl.locale) 
     const dispatch = useDispatch()
     const [formData, setFormData] = useState({
         name: '',
@@ -43,11 +45,15 @@ const ContactForm = ({ loading }) => {
     return (
         <Paper className={classes.paper} elevation={2}>
             <Typography component="div" className={classes.textbox}>
+              
                 <ContactFormText classes={classes} />
+              
+               
                 <ContactFormData classes={classes} formData={displayData} />
                 <form className={classes.form} onSubmit={handleSubmit}>
                     {steps[currentStep].id === 'NAME' && (
-                        <TextField variant="outlined" name='name' placeholder="Fill with your name"
+                        <TextField variant="outlined" name='name'
+                        placeholder={languague ? 'Insira seu nome...' : 'Fill up your name'}
                         autoComplete="off" 
                         className={classes.input} value={name} onChange={(e) => handleChange(e)}
                         InputProps={{
@@ -59,13 +65,14 @@ const ContactForm = ({ loading }) => {
                     )}
                     {steps[currentStep].id === 'EMAIL' && (
                         <TextField variant="outlined" name='email'
-                        placeholder={
-                            <FormattedMessage
-                            id = "input2"
-                            defaultMessage="Fill up with your email address"
-                           />
-                        } 
+                        placeholder={languague ? 'Insira seu email...' : 'Fill up your email adress'}
                         className={classes.input} value={email} onChange={(e) => handleChange(e)}
+                        InputProps={{
+                            startAdornment: 
+                            <InputAdornment position="start">
+                                <SiMinutemailer size={20} />
+                            </InputAdornment>
+                            }} 
                         
                         />
                      
@@ -73,7 +80,7 @@ const ContactForm = ({ loading }) => {
                     )}
                     {steps[currentStep].id === 'MSG' && (
                         <TextField variant="outlined" name='message'
-                        placeholder="Fill with your message"
+                        placeholder={languague ? 'Insira sua mensagem...' : 'Fill up your message'}
                         autoComplete="off"
                         className={classes.input}
                         value={message} onChange={(e) => handleChange(e)}
@@ -126,7 +133,7 @@ const ContactForm = ({ loading }) => {
                             />
                         </button>
                         {loading && (
-                            <CircularProgress />
+                            <CircularProgress className={classes.icon}/>
                         )}
                     </Typography>
                  

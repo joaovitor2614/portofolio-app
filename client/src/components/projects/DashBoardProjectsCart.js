@@ -63,7 +63,7 @@ import { Card, CardActionArea, CardContent,
 const DashBoardProjectsCart = (props) => {
   const [open, setOpen] = useState(false)
   const classes = useStyles();
-    const { img, title, description, features, source, app } = props
+    let { img, title, description, features, source, app } = props
     const handleToggle = () => setOpen(!open)
    
     return (

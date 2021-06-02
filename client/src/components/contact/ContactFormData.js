@@ -8,7 +8,7 @@ const ContactFormData = ({ classes, formData }) => {
         <Typography component="div" className={classes.databox}>
                      {name !== '' && (
                          <motion.div component="div" className={classes.dataitem}
-                         initial={{ x: "-100vh" }}
+                         initial={{ x: "100vh" }}
                          animate={{ x: 0 }}
                          transition={{ duration: 0.5, ease: "easeOut" }}
                          >

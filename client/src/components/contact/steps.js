@@ -44,4 +44,12 @@ export const handleNextStep = (setCurrentStep, currentStep, setDisplayData='', d
     }
    
 }
+
+export const getPlaceholder = (locale) => {
+    if (locale === 'pt-PT' || 'pt' || 'pt-BR') {
+        return true
+    } else {
+        return false
+    }
+}
 export default steps

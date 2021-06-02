@@ -10,7 +10,7 @@ const sendEmail = (data, enqueueSnackbar, lang) => async dispatch => {
         type: 'LOADED'
     })
     if (lang === 'pt-PT' || 'pt' || 'pt-BR') {
-        enqueueSnackbar('Mensagem enviado com sucesso', {
+        enqueueSnackbar('Mensagem enviada com sucesso', {
             autoHideDuration: 4000,
             variant: 'success',
         anchorOrigin: {

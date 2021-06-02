@@ -1,9 +1,9 @@
 import React from 'react'
 import DashBoardProjectsCart from './DashBoardProjectsCart'
 import { Grid, makeStyles, } from '../material-ui/material-ui'
-
+import { useIntl } from 'react-intl';
 import {FormattedMessage} from 'react-intl';
-import projectdata from './projectdata';
+import { projectdata, projectdataPort } from './projectdata';
 const useStyles = makeStyles({
     root: {
       marginLeft: '10px',
@@ -18,7 +18,29 @@ const useStyles = makeStyles({
   });
 
 const DashBoardProjects = () => {
+    const intl = useIntl()
+    console.log('projects int locale', intl.locale)
     const classes = useStyles()
+    const Projects = () => {
+       
+        return (
+            <>
+                {intl.locale === 'pt-PT' || 'pt' || 'pt-BR' ? projectdataPort.map((data) => (
+                        <Grid item xs='auto' style={{display: 'flex'}} key={data.title}>
+                            <DashBoardProjectsCart {...data}  />
+                        </Grid>
+                    )) : projectdata.map((data) => (
+                        <Grid item xs='auto' style={{display: 'flex'}} key={data.title}>
+                            <DashBoardProjectsCart {...data}  />
+                        </Grid>
+                    ))
+                    
+                    }
+            </>
+        )
+        
+    }
+    
     return (
         <div id='projects'>
             <section className='dashboard_projects'>
@@ -32,11 +54,21 @@ const DashBoardProjects = () => {
                 </div>
             
                 <Grid container spacing={6} className={classes.root}>
-                    {projectdata.length > 0 && projectdata.map((data) => (
-                        <Grid item xs='auto' style={{display: 'flex'}} key={data.title}>
+                    {intl.locale === 'pt-PT' || 'pt' || 'pt-BR' ? projectdataPort.map((data) => (
+                       <Grid item xs='auto' style={{display: 'flex'}} key={data.title}>
                             <DashBoardProjectsCart {...data}  />
                         </Grid>
-                    ))}
+                    )) : (
+                        <>
+                            {projectdata.map((data) => (
+                            <Grid item xs='auto' style={{display: 'flex'}} key={data.title}>
+                                <DashBoardProjectsCart {...data}  />
+                            </Grid>
+                            ))}
+                        </>
+                    )
+                     
+                    }
                 </Grid>
             </section>
         </div>

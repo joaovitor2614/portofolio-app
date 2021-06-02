@@ -13,6 +13,9 @@ const useContact = makeStyles((theme) => ({
             padding: theme.spacing(5),
         }
     },
+    icon: {
+        fontSize: '4rem'
+    },
     textbox: {
         
         maxWidth: '350px',
@@ -56,7 +59,8 @@ const useContact = makeStyles((theme) => ({
         color: 'gray',
         fontSize: '2em',
         textShadow: ' 2px 2px 0 rgb(0 0 0 / 15%);',
-        width: '50%',
+     
+        width: '70px',
         marginBottom: '.1em',
         fontWeight: 700,
         lineHeigh: '1.5em',
