@@ -22,7 +22,7 @@ const SideBar = () => {
     const classes = useStyles();
     let initialState = window.innerWidth < 900 ? false : true
     const [extended, setExtended] = useState(initialState)
-    console.log('extended root', extended)
+  
     const { isMobile } = useResponsive(setExtended);
     const handleExtend = () => setExtended(true);
     const handleAway = () => {

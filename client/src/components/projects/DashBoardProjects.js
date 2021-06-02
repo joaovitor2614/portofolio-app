@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 
 const DashBoardProjects = () => {
     const intl = useIntl()
-    console.log('projects int locale', intl.locale)
+ 
     const classes = useStyles()
     const Projects = () => {
        
